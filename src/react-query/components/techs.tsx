@@ -33,6 +33,7 @@ export const TechPosts = () => {
     queryFn: getTechs,
     select: (list) =>
       list.data.sort((a: techDataType, b: techDataType) => b.id - a.id),
+
     // list.data.map((o) => o),
   });
 
@@ -70,6 +71,7 @@ export const TechPosts = () => {
             setTempTechs={setTempTechs}
             isEdit={isEdit}
             init={init}
+            setIsEdit={setIsEdit}
           />
           <h1>All Techs</h1>
           {isLoading && <h1>Loading....</h1>}
@@ -142,17 +144,30 @@ const Createtech = ({
   setTempTechs,
   isEdit,
   init,
+  setIsEdit,
 }: {
   temptechs: techDataType;
   setTempTechs: React.Dispatch<React.SetStateAction<techDataType>>;
   isEdit: boolean;
   init: techDataType;
+  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const queryClient = useQueryClient();
   const { status, mutateAsync, error, isError } = useMutation({
     mutationFn: createTech,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["techs"] });
+    onSuccess: (data) => {
+      queryClient.setQueryData(
+        ["techs"],
+        (oldData: { data: techDataType[] }) => {
+          const result = {
+            ...oldData,
+            data: [data.data, ...oldData.data],
+          };
+          return result;
+        }
+      );
+      queryClient.setQueryData(["techs", data.data.id], () => data);
+      queryClient.setQueryData(["techsId", data.data.id], () => data);
     },
   });
   const {
@@ -161,16 +176,34 @@ const Createtech = ({
     mutate: updateTech,
   } = useMutation({
     mutationFn: upadateTech,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["techs"] });
+    onSuccess: (data) => {
       setTempTechs(init);
+      setIsEdit(false);
+      queryClient.setQueryData(
+        ["techs"],
+        (oldData: { data: techDataType[] }) => {
+          console.log("🚀 ~ oldData:", oldData);
+          const result = {
+            ...oldData,
+            data: oldData.data.map((o: techDataType) => {
+              if (o.id === data.data.id) {
+                return { ...o, ...data.data };
+              } else {
+                return o;
+              }
+            }),
+          };
+          return result;
+        }
+      );
+      queryClient.setQueryData(["techs", data.data.id], () => data);
+      queryClient.setQueryData(["techsId", data.data.id], () => data);
     },
     onError: (error) => {
       console.log("🚀 ~ error:", error);
       alert("Error Occurs when Editing");
     },
   });
-  console.log("🚀 ~ data:", data);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTempTechs({ ...temptechs, [e.target.name]: e.target.value });
   };
@@ -298,6 +331,7 @@ export const SingleTechComponent = ({
   const { data, isLoading, isError, error, isFetching } = useQuery({
     queryKey: ["techs", techId],
     queryFn: () => getSingleTech(techId as string | number),
+    staleTime: 60000,
   });
 
   const {
@@ -309,6 +343,7 @@ export const SingleTechComponent = ({
   } = useQuery({
     queryKey: ["techsId", techId],
     enabled: !!data?.data.id,
+    staleTime: 60000,
     queryFn: () => getSingleTech(data?.data.id as string | number),
   });
 

@@ -28,3 +28,8 @@ export const upadateTech = ({
 };
 
 export const deleteTech = (id: number | string) => axios.delete(`/data/${id}`);
+
+export const getInfiniteTech = (page_number: number) => {
+  console.log("🚀 ~ getInfiniteTech ~ page_number:", page_number);
+  return axios.get(`/data?_page=${page_number}&_per_page=3`);
+};
