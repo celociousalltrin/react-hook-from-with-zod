@@ -1,0 +1,172 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "title": "React",
+      "description": "Description for React",
+      "frameworkType": "JavaScript Library",
+      "releaseYear": 2013
+    },
+    {
+      "id": "2",
+      "title": "Vue",
+      "description": "Description for Vue",
+      "frameworkType": "JavaScript Framework",
+      "releaseYear": 2014
+    },
+    {
+      "id": "3",
+      "title": "Angular",
+      "description": "Description for Angular",
+      "frameworkType": "JavaScript Framework",
+      "releaseYear": 2010
+    },
+    {
+      "id": "4",
+      "title": "Node.js",
+      "description": "Description for Node.js",
+      "frameworkType": "JavaScript Runtime",
+      "releaseYear": 2009
+    },
+    {
+      "id": "5",
+      "title": "Express",
+      "description": "Description for Express",
+      "frameworkType": "Web Framework",
+      "releaseYear": 2010
+    },
+    {
+      "id": "6",
+      "title": "MongoDB",
+      "description": "Description for MongoDB",
+      "frameworkType": "Database",
+      "releaseYear": 2009
+    },
+    {
+      "id": "7",
+      "title": "GraphQL",
+      "description": "Description for GraphQL",
+      "frameworkType": "Query Language",
+      "releaseYear": 2015
+    },
+    {
+      "id": "8",
+      "title": "Django",
+      "description": "Description for Django",
+      "frameworkType": "Web Framework",
+      "releaseYear": 2005
+    },
+    {
+      "id": "9",
+      "title": "Flask",
+      "description": "Description for Flask",
+      "frameworkType": "Web Framework",
+      "releaseYear": 2010
+    },
+    {
+      "id": "10",
+      "title": "Spring Boot",
+      "description": "Description for Spring Boot",
+      "frameworkType": "Java Framework",
+      "releaseYear": 2013
+    },
+    {
+      "id": "11",
+      "title": "Vue.js",
+      "description": "Description for Vue.js",
+      "frameworkType": "JavaScript Framework",
+      "releaseYear": 2014
+    },
+    {
+      "id": "12",
+      "title": "React Native",
+      "description": "Description for React Native",
+      "frameworkType": "JavaScript Framework",
+      "releaseYear": 2015
+    },
+    {
+      "id": "13",
+      "title": "Flutter",
+      "description": "Description for Flutter",
+      "frameworkType": "UI Framework",
+      "releaseYear": 2017
+    },
+    {
+      "id": "14",
+      "title": "Swift",
+      "description": "Description for Swift",
+      "frameworkType": "Programming Language",
+      "releaseYear": 2014
+    },
+    {
+      "id": "15",
+      "title": "Kotlin",
+      "description": "Description for Kotlin",
+      "frameworkType": "Programming Language",
+      "releaseYear": 2011
+    },
+    {
+      "id": "16",
+      "title": "Go",
+      "description": "Description for Go",
+      "frameworkType": "Programming Language",
+      "releaseYear": 2009
+    },
+    {
+      "id": "17",
+      "title": "Ruby on Rails",
+      "description": "Description for Ruby on Rails",
+      "frameworkType": "Web Framework",
+      "releaseYear": 2005
+    },
+    {
+      "id": "18",
+      "title": "ASP.NET",
+      "description": "Description for ASP.NET",
+      "frameworkType": "Web Framework",
+      "releaseYear": 2002
+    },
+    {
+      "id": "19",
+      "title": "Laravel",
+      "description": "Description for Laravel",
+      "frameworkType": "PHP Framework",
+      "releaseYear": 2011
+    },
+    {
+      "id": "20",
+      "title": "Symfony",
+      "description": "Description for Symfony",
+      "frameworkType": "PHP Framework",
+      "releaseYear": 2005
+    },
+    {
+      "id": "21",
+      "title": "Ember.js",
+      "description": "Description for Ember.js",
+      "frameworkType": "JavaScript Framework",
+      "releaseYear": 2011
+    },
+    {
+      "id": "22",
+      "title": "Svelteaaa",
+      "description": "Description for Svelte",
+      "frameworkType": "JavaScript Framework",
+      "releaseYear": 2016
+    },
+    {
+      "id": "25",
+      "title": "sdasad",
+      "description": "sadsda",
+      "frameworkType": "sadsda",
+      "releaseYear": "1212"
+    },
+    {
+      "id": "26",
+      "title": "new",
+      "description": "sadsad",
+      "frameworkType": "asdsda",
+      "releaseYear": "222"
+    }
+  ]
+}
