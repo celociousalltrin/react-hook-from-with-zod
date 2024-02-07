@@ -14,8 +14,8 @@ export const InfiniteTech = () => {
       }, []);
       return result;
     },
-    getNextPageParam: (lastPage) => {
-      if (lastPage.data.next > lastPage.data.last) {
+    getNextPageParam: (lastPage, allPages, lastPageParam) => {
+      if (lastPageParam >= lastPage.data.pages) {
         return false;
       }
       return lastPage.data.next;

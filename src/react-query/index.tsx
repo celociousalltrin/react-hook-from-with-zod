@@ -3,6 +3,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
 import { InfiniteTech } from "./components/infinite-tech";
+import ReactSelect from "react-select";
+import { PaginationTechs } from "./components/pagination-tech";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -12,25 +14,32 @@ const queryClient = new QueryClient({
   },
 });
 const ReactQuery = () => {
-  const [isInfinite, setIsInfinite] = useState(false);
+  const reactQueryData = [
+    { label: "CRUD with react Query", value: "rtkList" },
+    { label: "Infinite Query", value: "rtkiq" },
+    { label: "Pagination", value: "rtkp" },
+  ];
+  const [tempPage, setTempPage] = useState(reactQueryData[0]);
   return (
     <>
-      <button
-        type="button"
-        style={{
-          backgroundColor: "grey",
-          borderRadius: "10px",
-          padding: "10px",
-          cursor: "Pointer",
-          color: "white",
-          margin: "1rem",
-        }}
-        onClick={() => setIsInfinite(!isInfinite)}
-      >
-        Toggle {!isInfinite ? "Infinite Tech" : "Tech List"}
-      </button>
+      <div style={{ marginBottom: "1rem" }}>
+        <ReactSelect
+          options={reactQueryData}
+          value={tempPage}
+          onChange={(data) => setTempPage(data as typeof tempPage)}
+        />
+      </div>
       <QueryClientProvider client={queryClient}>
-        {isInfinite ? <InfiniteTech /> : <TechPosts />}
+        {(() => {
+          switch (tempPage.value) {
+            case "rtkList":
+              return <TechPosts />;
+            case "rtkiq":
+              return <InfiniteTech />;
+            default:
+              return <PaginationTechs />;
+          }
+        })()}
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
