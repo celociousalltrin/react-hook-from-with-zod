@@ -57,6 +57,7 @@ export const TechPosts = () => {
       console.log("🚀 ~ handleDelete ~ err:", err);
     }
   };
+  console.log("Tech Post Component Render");
   return (
     <>
       {techId ? (
@@ -234,6 +235,8 @@ const Createtech = ({
     }
   };
 
+  console.log("Create tech Post Component Render");
+
   return (
     <div>
       <div style={{ display: "flex", gap: "2rem" }}>
@@ -356,6 +359,8 @@ export const SingleTechComponent = ({
     alert("The Tech Name Fetching api error");
     console.log("Fetch Name api error", techError);
   }
+
+  console.log("Single Tech COmponent Render");
   return (
     <>
       {isLoading ? (

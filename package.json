@@ -24,7 +24,8 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-phone-input-2": "^2.15.1",
     "react-select": "^5.8.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",

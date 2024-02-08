@@ -3,13 +3,15 @@ import ReactSelect from "react-select";
 import UserPage from "./pages/user-page";
 import ReactQuery from "./react-query";
 import { useState } from "react";
+import ZustandDemo from "./zustand";
 
 function App() {
   const appData = [
     { label: "React Hook Form", value: "rfh" },
     { label: "React Query", value: "rq" },
+    { label: "Zustand Demo", value: "zd" },
   ];
-  const [tempComponent, setTempComponent] = useState(appData[1]);
+  const [tempComponent, setTempComponent] = useState(appData[2]);
   return (
     <>
       <div style={{ width: "30%", margin: "1rem 3rem" }}>
@@ -26,6 +28,8 @@ function App() {
               return <UserPage />;
             case "rq":
               return <ReactQuery />;
+            case "zd":
+              return <ZustandDemo />;
           }
         })()}
       </div>
