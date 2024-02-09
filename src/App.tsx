@@ -4,7 +4,7 @@ import UserPage from "./pages/user-page";
 import ReactQuery from "./react-query";
 import { useState } from "react";
 import ZustandDemo from "./zustand";
-import ReactCharts from "./chartjs";
+import ReactCharts from "./charts";
 
 function App() {
   const appData = [
@@ -13,7 +13,7 @@ function App() {
     { label: "Zustand Demo", value: "zd" },
     { label: "React Chart", value: "rc" },
   ];
-  const [tempComponent, setTempComponent] = useState(appData[2]);
+  const [tempComponent, setTempComponent] = useState(appData[3]);
   return (
     <>
       <div style={{ width: "30%", margin: "1rem 3rem" }}>
