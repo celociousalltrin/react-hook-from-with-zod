@@ -4,12 +4,14 @@ import UserPage from "./pages/user-page";
 import ReactQuery from "./react-query";
 import { useState } from "react";
 import ZustandDemo from "./zustand";
+import ReactCharts from "./chartjs";
 
 function App() {
   const appData = [
     { label: "React Hook Form", value: "rfh" },
     { label: "React Query", value: "rq" },
     { label: "Zustand Demo", value: "zd" },
+    { label: "React Chart", value: "rc" },
   ];
   const [tempComponent, setTempComponent] = useState(appData[2]);
   return (
@@ -30,6 +32,8 @@ function App() {
               return <ReactQuery />;
             case "zd":
               return <ZustandDemo />;
+            case "rc":
+              return <ReactCharts />;
           }
         })()}
       </div>

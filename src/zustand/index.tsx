@@ -1,5 +1,6 @@
 import { useCountStore } from "../store/count-store";
 import { DogComponent } from "./zust-comp/comp1";
+import { CatComponent } from "./zust-comp/comp2";
 
 const ZustandDemo = () => {
   const count = useCountStore((state) => state.count);
@@ -52,7 +53,8 @@ const ZustandDemo = () => {
         </div>
       </div>
       <hr />
-      <DogComponent />
+      {/* <DogComponent /> */}
+      <CatComponent />
     </>
   );
 };
