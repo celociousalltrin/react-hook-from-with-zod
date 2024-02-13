@@ -50,7 +50,27 @@ const ReactCharts = () => {
       total_investment: 11111,
     },
   ];
+  const yy = [
+    {
+      name: "Dhoni",
+      total_investment: 888,
+    },
+    {
+      name: "cj",
+      total_investment: 34431,
+    },
+  ];
 
+  const multiToolTipValue = (data: Record<string, any>) => {
+    switch (data.dataset.label) {
+      case "Investment By Year":
+        return ["", ...xx.map((o) => `${o.name}: ${o.total_investment}`)];
+      case "Distributed By Year":
+        return ["", ...yy.map((o) => `${o.name}: ${o.total_investment}`)];
+      default:
+        return null;
+    }
+  };
   const options = {
     responsive: true,
     scales: {
@@ -72,9 +92,8 @@ const ReactCharts = () => {
       },
       tooltip: {
         callbacks: {
-          afterBody: () => {
-            return ["", ...xx.map((o) => `${o.name}: ${o.total_investment}`)];
-          },
+          afterBody: (values: Record<string, any>[]) =>
+            multiToolTipValue(values[0]),
         },
       },
     },
