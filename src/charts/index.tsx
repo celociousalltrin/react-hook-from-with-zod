@@ -71,6 +71,7 @@ const ReactCharts = () => {
         return null;
     }
   };
+
   const options = {
     responsive: true,
     scales: {
