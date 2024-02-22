@@ -6,11 +6,7 @@ export const ChartComponent = ({
   Component,
   data,
   chartData: { chartSliceCount, sliceKeyName, legendsName, XAxisKey },
-  barStyle: {
-    bgColor = ["green", "yellow"],
-    bdrColor = "black",
-    bdrWidth = 3,
-  } = {},
+  barStyle: { bgColor = ["pink"], bdrColor = "black", bdrWidth = 3 } = {},
   isOption = false,
   option,
 }: TChartComponentType) => {

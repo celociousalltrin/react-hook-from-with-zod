@@ -16,6 +16,7 @@ import {
 } from "chart.js";
 import { Bar, Doughnut, Line, Pie } from "react-chartjs-2";
 import ReactSelect from "react-select";
+import { DemoComponent } from "./component/demoComponent";
 
 ChartJS.register(
   CategoryScale,
@@ -35,6 +36,7 @@ const ReactCharts = () => {
     { label: "Line Chart", value: "line" },
     { label: "Pie Chart", value: "pie" },
     { label: "Doughnut Chart", value: "doughnut" },
+    { label: "Demo Chart", value: "demo-chart" },
   ];
   const [chartSelectedValue, setChartSelectedValue] = useState(
     chartCompOptions[0]
@@ -99,6 +101,7 @@ const ReactCharts = () => {
       },
     },
   };
+
   return (
     <div>
       <h1>React Charts with ChartJs and React Chartjs 2</h1>
@@ -214,6 +217,10 @@ const ReactCharts = () => {
                       legendsName: ["Investment By Year"],
                       XAxisKey: "year",
                     }}
+                    barStyle={{
+                      bdrColor: "green",
+                      bdrWidth: 4,
+                    }}
                   />
                 </>
               );
@@ -252,6 +259,8 @@ const ReactCharts = () => {
                   />
                 </>
               );
+            case "demo-chart":
+              return <DemoComponent />;
             default:
               return <h1>No Component To Show</h1>;
           }

@@ -19,6 +19,7 @@ export const DataFormatFunction = ({
   bdrColor,
   bdrWidth,
 }: TBarTypes): any => {
+  console.log("🚀 ~ chartSliceCount:", chartSliceCount);
   if (
     chartSliceCount !== sliceKeyName.length ||
     chartSliceCount !== legendsName.length
@@ -28,19 +29,21 @@ export const DataFormatFunction = ({
     );
   }
   const barsInArray = [];
-  for (let i = 0; i < chartSliceCount; i++) {
+  for (let i = 0; i < bgColor.length; i++) {
     barsInArray.push(i);
   }
 
   return {
     labels: input.map((o: any) => o[XAxisKey]),
-    datasets: barsInArray.map((o) => ({
-      label: legendsName[o],
-      data: input.map((xx) => xx[sliceKeyName[o]]),
-      backgroundColor: bgColor[o],
-      borderColor: bdrColor,
-      borderWidth: bdrWidth,
-    })),
+    datasets: barsInArray.map((o) => {
+      return {
+        label: legendsName[o],
+        data: input.map((xx) => xx[sliceKeyName[o]]),
+        backgroundColor: bgColor[o],
+        borderColor: bdrColor,
+        borderWidth: bdrWidth,
+      };
+    }),
   };
 };
 
